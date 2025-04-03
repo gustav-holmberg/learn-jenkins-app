@@ -36,4 +36,16 @@ pipeline {
          }
         }
     }
+
+      post {
+         always {
+               junit 'test-results/junit.xml'
+         }
+         success {
+               echo 'Build and tests completed successfully!'
+         }
+         failure {
+               echo 'Build or tests failed.'
+         }
+      }
 }
